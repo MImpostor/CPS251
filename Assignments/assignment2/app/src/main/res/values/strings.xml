@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TipCalculator</string>
+    <string name="tooltipText">Tip amounts will display here</string>
+    <string name="tenPercentValue" />
+    <string name="fifteenPercentValue" />
+    <string name="twentyPercentValue" />
+    <string name="calculate">Calculate Tip</string>
+    <string name="tipHint">Enter Bill Total</string>
+</resources>

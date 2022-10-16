@@ -39,8 +39,10 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.button.setOnClickListener {
-                v: View -> buttonClicked(v)
+                v: View -> buttonClicked()
         }
+        if (viewModel != null){
+            buttonClicked()}
     }
 
     override fun onAttach(context: Context) {
@@ -60,21 +62,19 @@ class MainFragment : Fragment() {
         _binding = null
     }
 
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        super.onViewStateRestored(savedInstanceState)
-        if (viewModel.getNames() != "") {
-            binding.message.text = viewModel.getNames()
-            Log.i("test", "resume names assigned")
-        }
-    }
 
-    @Deprecated("Deprecated in Java")
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
     }
 
-    private fun buttonClicked(view: View): String {
+//    @Deprecated("Deprecated in Java")
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+//    }
+
+    private fun buttonClicked(): String {
         val content = binding.EnterName.text.toString()
         Log.i("test", "button clicked fragment")
         val result = activityCallback?.onButtonClick(content).toString()

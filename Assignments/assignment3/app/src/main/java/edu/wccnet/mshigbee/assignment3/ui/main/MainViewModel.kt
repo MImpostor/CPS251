@@ -10,15 +10,16 @@ class MainViewModel : ViewModel() {
     private var names: String = ""
 
     fun getNames(): String {
-//        if (names==="") {
-//            Log.i("test", "no names given")
-//            return "No names to display"
-//        }
+        if (names=="") {
+            Log.i("test", "no names given")
+            return "No names to display"
+        }
         Log.i("Test", "Called names")
         return names
     }
 
     fun addName(name: String) {
-        names += name + "\n"
+        if (name != "") {
+        names += name + "\n"}
     }
 }

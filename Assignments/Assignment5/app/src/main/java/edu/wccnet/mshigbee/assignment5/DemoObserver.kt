@@ -7,46 +7,45 @@ import java.sql.Timestamp
 
 class DemoObserver: LifecycleObserver  {
 
-
-    var observerViewModel: MainViewModel = MainViewModel.newInstance()
+    var observerViewModel = MainViewModel
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     fun onResume() {
         Log.i("TAG", "Resumed")
     observerViewModel.addName("onResume was fired on " + Timestamp(System.currentTimeMillis()).toString() + "\n**********\n")
-        Log.i("TAG", observerViewModel.getName().value.toString())
+//        Log.i("TAG", observerViewModel.getName().value.toString())
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     fun onPause() {
-        Log.i("TAG", "Paused")
+//        Log.i("TAG", "Paused")
         observerViewModel.addName("onPause was fired on " + Timestamp(System.currentTimeMillis()).toString() + "\n**********\n")
-        Log.i("TAG", observerViewModel.getName().value.toString())
+//        Log.i("TAG", observerViewModel.getName().value.toString())
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreate() {
-        Log.i("TAG", "Created")
+//        Log.i("TAG", "Created")
         observerViewModel.addName("onCreate was fired on " + Timestamp(System.currentTimeMillis()).toString() + "\n")
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun onStart() {
-        Log.i("TAG", "Started")
+//        Log.i("TAG", "Started")
         observerViewModel.addName("onStart was fired on " + Timestamp(System.currentTimeMillis()).toString() + "\n")
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     fun onStop() {
-        Log.i("TAG", "Stopped")
+//        Log.i("TAG", "Stopped")
         observerViewModel.addName("onStop was fired on " + Timestamp(System.currentTimeMillis()).toString() + "\n")
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun onDestroy() {
-        Log.i("TAG", "Destroyed")
+//        Log.i("TAG", "Destroyed")
         observerViewModel.addName("onDestroy was fired on " + Timestamp(System.currentTimeMillis()).toString() + "\n**********\n")
-        Log.i("TAG", observerViewModel.getName().value.toString())
+//        Log.i("TAG", observerViewModel.getName().value.toString())
     }
 
 }

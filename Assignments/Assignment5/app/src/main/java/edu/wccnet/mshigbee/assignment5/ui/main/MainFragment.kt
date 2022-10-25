@@ -18,7 +18,7 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
-    lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: MainViewModel
     lateinit var binding: FragmentMainBinding
 
     override fun onCreateView(
@@ -33,10 +33,9 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        binding.setVariable(myViewModel, viewModel)
+        binding.setVariable(myViewModel, viewModel)
         lifecycle.addObserver(DemoObserver())
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        binding.setVariable(myViewModel, DemoObserver().observerViewModel)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
